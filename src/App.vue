@@ -1,28 +1,54 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="center-flex">
+    <new-todo @newTodo="addTodo" />
+    <ul>
+      <todo-item
+        v-for="(todo, index) in todos"
+        :key="index"
+        :todo="todo"
+        @removeTodo="removeTodo"
+      />
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NewTodo from './components/NewTodo.vue'
+import TodoItem from './components/TodoItem.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    NewTodo,
+    TodoItem
+  },
+  data () {
+    return {
+      todos: []
+    }
+  },
+  methods: {
+    addTodo (newtodo) {
+      this.todos.unshift(newtodo)
+      localStorage.setItem('listaTodos', JSON.stringify(this.todos))
+    },
+    removeTodo (todo) {
+      this.todos.splice(this.todos.indexOf(todo), 1)
+      localStorage.setItem('listaTodos', JSON.stringify(this.todos))
+    }
+  },
+  created () {
+    this.todos = JSON.parse(localStorage.getItem('listaTodos')) || []
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
 }
 </style>
