@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 
 class TodoItem extends Component {
-  removeTodo() {
-    console.log("Remove");
-  }
+  removeTodo = () => {
+    this.props.removeTodo(this.props.todo);
+  };
 
-  editTodo() {
-    console.log("Edit");
-  }
+  editTodo = () => {
+    this.props.editTodo(this.props.todo);
+  };
 
-  doneTodo() {
-    console.log("Done");
-  }
+  doneTodo = () => {
+    this.props.doneTodo(this.props.todo);
+  };
 
   render() {
     if (this.props.editable) {
