@@ -1,0 +1,33 @@
+li {
+    list-style: none;
+    padding: 10px;
+}
+
+a {
+    cursor: pointer;
+    color: #00bc8c;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a.active {
+    color: #424242;
+}
+
+a:hover {
+    color: #c2eca5;
+}
+
+.menu-nav {
+    width: 100%;
+    background-color: #f5f5f5;
+    position: fixed;
+    top: 0;
+}
+
+.menu-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
