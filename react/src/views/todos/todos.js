@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import Header from "../../components/header/header";
 import TodoItem from "../../components/todoItem/todoItem";
 
-const todo = {
-  msg: "Teste"
-};
-
 class Todos extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      todos: []
+      todos: JSON.parse(localStorage.getItem("listaTodos")) || []
     };
   }
 
@@ -33,13 +30,18 @@ class Todos extends Component {
         <div className="todos center-flex">
           <h1> Lista de Tarefas </h1>
           <ul>
-            <TodoItem
-              todo={todo}
-              doneTodo={this.doneTodo}
-              editTodo={this.editTodo}
-              removeTodo={this.removeTodo}
-              editable
-            />
+            {this.state.todos.map((todo, idx) => {
+              return (
+                <TodoItem
+                  key={idx}
+                  todo={todo}
+                  doneTodo={this.doneTodo}
+                  editTodo={this.editTodo}
+                  removeTodo={this.removeTodo}
+                  editable
+                />
+              );
+            })}
           </ul>
         </div>
       </div>
