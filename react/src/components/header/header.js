@@ -5,8 +5,8 @@ import { NavLink } from "react-router-dom";
 class Header extends Component {
   render() {
     return (
-      <nav class="menu-nav">
-        <ul class="menu-links">
+      <nav className="menu-nav">
+        <ul className="menu-links">
           <li>
             <NavLink exact={true} to="/">
               ToDos

@@ -1,20 +1,30 @@
 import React, { Component } from "react";
 
 class TodoItem extends Component {
+  removeTodo() {
+    console.log("Remove");
+  }
+
+  editTodo() {
+    console.log("Edit");
+  }
+
+  doneTodo() {
+    console.log("Done");
+  }
+
   render() {
     if (this.props.editable) {
       return (
         <li>
-          <button class="btn btn-danger" onClick="{removeTodo}">
+          <button className="btn btn-danger" onClick={this.removeTodo}>
             X
           </button>
-          <button class="btn btn-warning" onClick="{editTodo}">
-            {" "}
+          <button className="btn btn-warning" onClick={this.editTodo}>
             Edit
           </button>
-          <span class="todo-text">{this.props.todo.msg}</span>
-          <button class="btn btn-success" onClick="{doneTodo}">
-            {" "}
+          <span className="todo-text">{this.props.todo.msg}</span>
+          <button className="btn btn-success" onClick={this.doneTodo}>
             OK
           </button>
         </li>
@@ -22,7 +32,7 @@ class TodoItem extends Component {
     } else {
       return (
         <li>
-          <span class="todo-text">{this.props.todo.msg}</span>
+          <span className="todo-text">{this.props.todo.msg}</span>
         </li>
       );
     }
