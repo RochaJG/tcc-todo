@@ -1,44 +1,33 @@
 <template>
   <div class="center-flex">
-    <new-todo @newTodo="addTodo" />
-    <ul>
-      <todo-item
-        v-for="(todo, index) in todos"
-        :key="index"
-        :todo="todo"
-        @removeTodo="removeTodo"
-      />
-    </ul>
+    <nav class="menu-nav">
+      <ul class="menu-links">
+        <menu-link
+          goto="/"
+          linkName="ToDos"
+        />
+        <menu-link
+          goto="/concluidos"
+          linkName="Concluídos"
+        />
+      </ul>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import NewTodo from './components/NewTodo.vue'
-import TodoItem from './components/TodoItem.vue'
+import MenuLink from './components/MenuLink'
+import dados from './assets/dados.json'
 
 export default {
   name: 'app',
   components: {
-    NewTodo,
-    TodoItem
+    MenuLink
   },
-  data () {
-    return {
-      todos: []
-    }
-  },
-  methods: {
-    addTodo (newtodo) {
-      this.todos.unshift(newtodo)
-      localStorage.setItem('listaTodos', JSON.stringify(this.todos))
-    },
-    removeTodo (todo) {
-      this.todos.splice(this.todos.indexOf(todo), 1)
-      localStorage.setItem('listaTodos', JSON.stringify(this.todos))
-    }
-  },
-  created () {
-    this.todos = JSON.parse(localStorage.getItem('listaTodos')) || []
+  beforeCreate () {
+    localStorage.setItem('listaTodos', JSON.stringify(dados))
+    localStorage.setItem('listaTodosDone', '[]')
   }
 }
 </script>
@@ -50,5 +39,19 @@ export default {
   align-items: center;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.menu-nav {
+  width: 100%;
+  background-color: #f5f5f5;
+  position: fixed;
+  top: 0;
+}
+
+.menu-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 </style>
