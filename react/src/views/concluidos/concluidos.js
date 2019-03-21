@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import "./todos.css";
 import Header from "../../components/header/header";
 
 class Concluidos extends Component {
@@ -7,7 +6,6 @@ class Concluidos extends Component {
     return (
       <div class="center-flex">
         <Header />
-        Concluidos
       </div>
     );
   }

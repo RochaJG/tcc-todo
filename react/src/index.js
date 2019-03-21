@@ -5,6 +5,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Todos from "./views/todos/todos";
 import Concluidos from "./views/concluidos/concluidos";
 
+import dados from "./assets/dados.json";
+localStorage.setItem("listaTodos", JSON.stringify(dados));
+localStorage.setItem("listaTodosDone", "[]");
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
