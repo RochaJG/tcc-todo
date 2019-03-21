@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../components/header/header";
 import TodoItem from "../../components/todoItem/todoItem";
+import NewTodo from "../../components/newTodo/newTodo";
 
 class Todos extends Component {
   constructor(props) {
@@ -23,12 +24,17 @@ class Todos extends Component {
     console.log("Done:", todo);
   }
 
+  NewTodo(todo) {
+    console.log("Done:", todo);
+  }
+
   render() {
     return (
       <div className="todos center-flex">
         <Header />
         <div className="todos center-flex">
           <h1> Lista de Tarefas </h1>
+          <NewTodo newTodo={this.newTodo} />
           <ul>
             {this.state.todos.map((todo, idx) => {
               return (

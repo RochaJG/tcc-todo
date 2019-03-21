@@ -4,7 +4,7 @@ import Header from "../../components/header/header";
 class Concluidos extends Component {
   render() {
     return (
-      <div class="center-flex">
+      <div className="todos center-flex">
         <Header />
       </div>
     );
