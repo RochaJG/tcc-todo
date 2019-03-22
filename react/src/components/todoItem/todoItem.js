@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./todoItem.css";
 
 class TodoItem extends Component {
   removeTodo = () => {
@@ -23,7 +24,7 @@ class TodoItem extends Component {
           <button className="btn btn-warning" onClick={this.editTodo}>
             Edit
           </button>
-          <span className="todo-text">{this.props.todo.msg}</span>
+          <span className="todo-text"> {this.props.todo.msg} </span>
           <button className="btn btn-success" onClick={this.doneTodo}>
             OK
           </button>
@@ -32,7 +33,7 @@ class TodoItem extends Component {
     } else {
       return (
         <li>
-          <span className="todo-text">{this.props.todo.msg}</span>
+          <span className="todo-text"> {this.props.todo.msg} </span>
         </li>
       );
     }
