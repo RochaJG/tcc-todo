@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import Todos from "./views/todos/todos";
 import Concluidos from "./views/concluidos/concluidos";
 
@@ -12,8 +12,9 @@ localStorage.setItem("listaTodosDone", "[]");
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" exact={true} component={Todos} />
+      <Route path="/todos" exact component={Todos} />
       <Route path="/concluidos" component={Concluidos} />
+      <Redirect from="/" to="/todos" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

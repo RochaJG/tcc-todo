@@ -11,14 +11,18 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [{
-    path: '/',
-    name: 'home',
+    path: '/todos',
+    name: 'todos',
     component: Todos
   },
   {
     path: '/concluidos',
     name: 'concluidos',
     component: Concluidos
+  },
+  {
+    path: '*',
+    redirect: '/todos'
   }
   ]
 })

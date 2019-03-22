@@ -3,7 +3,7 @@
     <nav class="menu-nav">
       <ul class="menu-links">
         <menu-link
-          goto="/"
+          goto="/todos"
           linkName="ToDos"
         />
         <menu-link

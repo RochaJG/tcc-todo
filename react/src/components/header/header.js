@@ -8,12 +8,12 @@ class Header extends Component {
       <nav className="menu-nav">
         <ul className="menu-links">
           <li>
-            <NavLink exact={true} to="/">
+            <NavLink exact to="/todos">
               ToDos
             </NavLink>
           </li>
           <li>
-            <NavLink exact={true} to="/concluidos">
+            <NavLink exact to="/concluidos">
               Concluídos
             </NavLink>
           </li>
