@@ -12,29 +12,56 @@ class Todos extends Component {
     };
   }
 
-  removeTodo(todo) {
-    console.log("Remove:", todo);
-  }
+  removeTodo = todo => {
+    const todoList = this.state.todos;
+    todoList.splice(todoList.indexOf(todo), 1);
+    this.setState({
+      todos: todoList
+    });
+    localStorage.setItem("listaTodos", JSON.stringify(todoList));
+  };
 
-  editTodo(todo) {
-    console.log("Edit:", todo);
-  }
+  editTodo = todo => {
+    const todoList = this.state.todos;
+    const newTodo = {
+      msg: prompt("Informe o novo texto do item:", todo.msg)
+    };
+    todoList.splice(todoList.indexOf(todo), 1, newTodo);
+    this.setState({
+      todos: todoList
+    });
+    localStorage.setItem("listaTodos", JSON.stringify(todoList));
+  };
 
-  doneTodo(todo) {
-    console.log("Done:", todo);
-  }
+  doneTodo = todo => {
+    const todoList = this.state.todos;
+    const doneTodos = JSON.parse(localStorage.getItem("listaTodosDone")) || [];
+    todoList.splice(todoList.indexOf(todo), 1);
 
-  NewTodo(todo) {
-    console.log("Done:", todo);
-  }
+    this.setState({
+      todos: todoList
+    });
+    localStorage.setItem("listaTodos", JSON.stringify(todoList));
+
+    doneTodos.push(todo);
+    localStorage.setItem("listaTodosDone", JSON.stringify(doneTodos));
+  };
+
+  newTodo = newTodo => {
+    const todoList = this.state.todos;
+    todoList.unshift(newTodo);
+    this.setState({
+      todos: todoList
+    });
+    localStorage.setItem("listaTodos", JSON.stringify(todoList));
+  };
 
   render() {
     return (
       <div className="todos center-flex">
         <Header />
         <div className="todos center-flex">
-          <h1> Lista de Tarefas </h1>
-          <NewTodo newTodo={this.newTodo} />
+          <h1> Lista de Tarefas </h1> <NewTodo newTodo={this.newTodo} />
           <ul>
             {this.state.todos.map((todo, idx) => {
               return (
