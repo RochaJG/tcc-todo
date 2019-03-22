@@ -6,7 +6,7 @@
       placeholder="Digite um todo"
     />
     <button
-      type="submit"
+      type="button"
       class="btn btn-outline-success"
       @click="addTodo"
     >Adicionar</button>
