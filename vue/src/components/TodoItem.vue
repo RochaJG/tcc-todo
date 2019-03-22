@@ -1,20 +1,20 @@
 <template>
   <li>
     <button
-      class="btn btn-danger"
+      class="btn btn-outline-danger"
       v-if="editable"
       @click="$emit('removeTodo', todo)"
     >
       X
     </button>
     <button
-      class="btn btn-warning"
+      class="btn btn-outline-warning"
       v-if="editable"
       @click="$emit('editTodo', todo)"
     >Edit</button>
     <span class="todo-text">{{ todo.msg }}</span>
     <button
-      class="btn btn-success"
+      class="btn btn-outline-success"
       v-if="editable"
       @click="$emit('doneTodo', todo)"
     >OK</button>

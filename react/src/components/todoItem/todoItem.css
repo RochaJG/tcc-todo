@@ -1,4 +1,4 @@
-li {
+li.todo-item {
     list-style: none;
     padding: 2px 0;
 }

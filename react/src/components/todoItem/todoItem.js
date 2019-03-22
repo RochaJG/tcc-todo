@@ -17,15 +17,15 @@ class TodoItem extends Component {
   render() {
     if (this.props.editable) {
       return (
-        <li>
-          <button className="btn btn-danger" onClick={this.removeTodo}>
+        <li className="todo-item">
+          <button className="btn btn-outline-danger" onClick={this.removeTodo}>
             X
           </button>
-          <button className="btn btn-warning" onClick={this.editTodo}>
+          <button className="btn btn-outline-warning" onClick={this.editTodo}>
             Edit
           </button>
-          <span className="todo-text"> {this.props.todo.msg} </span>
-          <button className="btn btn-success" onClick={this.doneTodo}>
+          <span className="todo-text">{this.props.todo.msg}</span>
+          <button className="btn btn-outline-success" onClick={this.doneTodo}>
             OK
           </button>
         </li>
@@ -33,7 +33,7 @@ class TodoItem extends Component {
     } else {
       return (
         <li>
-          <span className="todo-text"> {this.props.todo.msg} </span>
+          <span className="todo-text">{this.props.todo.msg}</span>
         </li>
       );
     }

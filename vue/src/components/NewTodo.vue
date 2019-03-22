@@ -7,7 +7,7 @@
     />
     <button
       type="submit"
-      class="btn btn-success"
+      class="btn btn-outline-success"
       @click="addTodo"
     >Adicionar</button>
   </form>
