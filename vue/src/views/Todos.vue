@@ -40,7 +40,7 @@ export default {
       localStorage.setItem('listaTodos', JSON.stringify(this.todos))
     },
     editTodo (todo) {
-      const newTodo = { msg: prompt('Informe o novo texto do item:', todo.msg) }
+      const newTodo = { msg: prompt('Informe o novo texto do item:', todo.msg) || todo.msg }
       this.todos.splice(this.todos.indexOf(todo), 1, newTodo)
     },
     doneTodo (todo) {

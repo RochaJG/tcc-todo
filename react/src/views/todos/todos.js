@@ -24,7 +24,7 @@ class Todos extends Component {
   editTodo = todo => {
     const todoList = this.state.todos;
     const newTodo = {
-      msg: prompt("Informe o novo texto do item:", todo.msg)
+      msg: prompt("Informe o novo texto do item:", todo.msg) || todo.msg
     };
     todoList.splice(todoList.indexOf(todo), 1, newTodo);
     this.setState({
