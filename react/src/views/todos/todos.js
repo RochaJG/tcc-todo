@@ -58,7 +58,7 @@ class Todos extends Component {
 
   render() {
     return (
-      <div className="todos center-flex">
+      <div className="center-flex">
         <Header />
         <div className="todos center-flex">
           <h1> Lista de Tarefas </h1> <NewTodo newTodo={this.newTodo} />

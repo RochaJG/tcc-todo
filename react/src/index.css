@@ -25,3 +25,7 @@
 .todos {
   padding-top: 100px;
 }
+
+.item-done {
+  text-decoration: line-through;
+}
